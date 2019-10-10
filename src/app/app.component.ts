@@ -1,9 +1,10 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, NgZone, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
   get title() { console.log('CD'); return 'title'; }
@@ -11,8 +12,6 @@ export class AppComponent implements OnInit {
   constructor(private ngZone: NgZone) {}
 
   ngOnInit() {
-    this.ngZone.runOutsideAngular(() => {
-      requestAnimationFrame(() => this.ngOnInit());
-    });
+    requestAnimationFrame(() => this.ngOnInit());
   }
 }
