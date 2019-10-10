@@ -13,7 +13,7 @@ import { AsyncComponent } from './async/async.component';
     AsyncComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule
   ],
   providers: [],
