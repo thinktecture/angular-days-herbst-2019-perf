@@ -12,6 +12,6 @@ export class AppComponent implements OnInit {
   constructor(private ngZone: NgZone) {}
 
   ngOnInit() {
-    requestAnimationFrame(() => this.ngOnInit());
+    // requestAnimationFrame(() => this.ngOnInit());
   }
 }
